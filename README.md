@@ -11,5 +11,3 @@ Está sendo desenvolvido um sistema utilizando api de pokemon TCG, implementando
 
 ## Funcionalidades
 - CRUD do baralho
-- Cadastro de Atualização de Pacote
-- Notificação por E-mail
