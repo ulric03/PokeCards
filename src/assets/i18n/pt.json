@@ -1,0 +1,16 @@
+{
+    "PokeCards":"Poke Cards",
+    "Set_Sets": "Baralhos",
+    "Set_NewSet": "Criar novo baralho",
+    "Form_OneStep": "1. Informe o nome do baralho",
+    "Form_TwoStep": "2. Salve o baralho",
+    "Create": "Criar",
+    "Edit": "Editar",
+    "List": "Listar",
+    "Form_Set": "baralho",
+    "Form_NameSet": "Nome do baralho",
+    "Detail_CardsTrainner": "Cartas de treinador",
+    "Form_LimitCardName":"Só podem ter 4 cartas com o mesmo nome, no baralho",
+    "Form_LimitCard":"O baralho tem que ter no máximo 60 cartas",
+    "Form_MinCard":"O baralho tem que ter no mínimo 24 cartas e no máximo 60 cartas"
+}

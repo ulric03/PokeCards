@@ -1,0 +1,44 @@
+<h3 class="text-center">{{"Set_Sets" | translate}}</h3>
+<div class="pt-3 sample-column card-wrapper">
+    <div class="grid grid-cols-3 gap-3">
+        <igx-card elevated *ngFor="let set of sets">
+            <igx-card-media>
+                <div class="relative float-left">
+                    <div class="grid grid-rows-2 grid-cols-2 gap-1 ">
+                        <img [src]="card.images.small" *ngFor="let card of set.cards.slice(0,4)" >
+                    </div>
+                </div>
+                <div class="bg-transparent relative hover:opacity-30 w-auto h-auto hover:bg-black hover:cursor-pointer">
+                </div>
+            </igx-card-media>
+    
+            <igx-card-header>
+                <h3 igxCardHeaderTitle>{{ set.name }}</h3>
+            </igx-card-header>
+    
+            <igx-card-content>
+                <button igxButton="flat"  (click)="detail(set.name)">
+                    <span class="material-symbols-outlined text-black" >
+                        visibility
+                        </span>
+                </button>
+                <button igxButton="flat" (click)="edit(set.name)">
+                    <span class="material-symbols-outlined text-black">
+                        edit
+                        </span>
+                </button>
+                <button igxButton="flat" (click)="remove(set.name)">
+                    <span class="material-symbols-outlined text-black">
+                        delete
+                        </span>
+                </button>
+            </igx-card-content>
+        </igx-card>
+    </div>
+</div>
+
+<div class="m-auto text-center">
+    <button igxButton="flat"  (click)="newSet()" class="pt-4">
+        <span class="text-black">{{ "Set_NewSet" | translate }}</span>    
+    </button>
+</div>

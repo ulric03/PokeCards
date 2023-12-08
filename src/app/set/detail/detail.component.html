@@ -1,0 +1,21 @@
+<div>
+    <p>{{ "Detail_CardsTrainner" | translate }} {{qtySupertype}}</p>
+    <div class="grid grid-cols-12">
+        <p *ngFor="let type of types">{{type}}</p>
+    </div>
+    <div class="grid grid-cols-10 gap-1">
+        <div *ngFor="let poke of set.cards" class="transition-all hover:scale-150 ease-in duration-500" >
+            <img [src]="poke.images.small"  class="cursor-help"  (click)="showOverlay(poke)">
+        </div>
+    </div>
+</div>
+
+<div #cardDetail class="max-w-lg">
+    <igx-card *ngIf="pokeSelect">
+        <div class="grid grid-cols-1">
+            <igx-card-media >
+                <img [src]="pokeSelect.images.large" >
+            </igx-card-media>
+        </div>
+    </igx-card>
+</div>

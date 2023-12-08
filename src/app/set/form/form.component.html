@@ -1,0 +1,129 @@
+
+<div class="m-auto text-center">
+    <h3><span *ngIf="!isEdit">{{"Create" | translate}}</span> <span *ngIf="isEdit">{{"Edit" | translate}}</span> {{"Form_Set" | translate}}</h3>
+    <ul>
+        <li>{{ "Form_OneStep" | translate }}</li>
+        <li>{{ "Form_TwoStep" | translate }}</li>
+    </ul>
+</div>
+<div class="grid grid-cols-2">
+    <div>
+        <div class="h-32 ">
+            <igx-input-group>
+                <input igxInput name="searchName" type="text" [(ngModel)]="searchName" (keyup)="search()"/>
+                <label igxLabel for="searchName"> Search name</label>
+            </igx-input-group>
+            <h5>Cartas</h5>
+        </div>
+        <div>
+            <div class="p-4 overflow-scroll" style="height: 80vh;">
+                <div *ngIf="loading" class="animate-pulse grid grid-cols-3">
+                    <div class="" *ngFor="let num of [1,1,1,1,1,1,1,1,1,1,1,1]">
+                        <igx-card elevated>
+                            <igx-card-media class="scale-90">
+                                <div class=" bg-slate-200 h-10 w-10"></div>
+                            </igx-card-media>
+            
+                            <igx-card-header>
+                                <div class="h-2 bg-slate-200 rounded"></div>
+                            </igx-card-header>
+            
+                            <igx-card-content>
+                                <div class="h-2 bg-slate-200 rounded "></div>
+                                <div class="h-2 bg-slate-200 rounded "></div>
+                                <div class="h-2 bg-slate-200 rounded "></div>
+                            </igx-card-content>
+            
+                            <igx-card-actions>
+                                <div class="h-2 bg-slate-200 rounded"></div>
+                            </igx-card-actions>
+                        </igx-card>
+    
+                    </div>    
+                </div>
+                <div class="sample-column">
+                    <div class="card-wrapper grid grid-cols-3 gap-1" >
+                        <ng-container *ngFor="let poke of pokesFilter">
+                            <igx-card elevated class="transition-all hover:scale-105 ease-in duration-500">
+                                <igx-card-media >
+                                    <img [src]="poke.images.small" >
+                                </igx-card-media>
+                
+                                <igx-card-actions>
+                                    <button igxButton="flat"(click)="addCard(poke.id,snackbar);" igxRipple igxStart> 
+                                        <span class="material-symbols-outlined text-black">
+                                            add
+                                            </span>
+                                    </button>
+                                </igx-card-actions>
+                            </igx-card>
+                        </ng-container>
+                    </div>
+                    
+                </div>
+    
+            </div>
+            <igx-paginator #paginator
+            [perPage]="250"
+            [selectOptions]="itemsPerPage"
+            [totalRecords]="totalCount"
+            (paging)="nexPage($event)">
+        </igx-paginator>
+        </div>
+        
+    </div>
+    <div>
+        <div class="h-32 ">
+            <igx-input-group>
+                <input igxInput name="name" type="text" [(ngModel)]="name" (change)="changeName()"/>
+                <label igxLabel for="name"> {{ "Form_NameSet" |  translate}}</label>
+            </igx-input-group>
+           
+            <h5>Cartas do seu baralho
+                <span [class.text-red-700]="set.cards.length < 24 ">{{set.cards.length}}</span>
+                    /
+                    <span>60</span>
+            </h5>
+        </div>
+        <div  class="p-4 overflow-scroll h-" style="height: 80vh;">
+            <div class="card-wrapper grid grid-cols-3 gap-1 ">
+                <div *ngFor="let poke of set.cards.reverse()" class="transition-all hover:scale-105 ease-in duration-500">
+                    <igx-card elevated>
+                        <igx-card-media  >
+                            <img [src]="poke.images.small" class="cursor-help" (click)="showOverlay(poke)" >
+                        </igx-card-media>
+        
+                        <igx-card-actions>
+                           
+                            <button igxButton="flat" (click)="remove(poke.id)" igxRipple igxStart> 
+                                <span class="material-symbols-outlined text-black">
+                                    delete
+                                    </span>
+                            </button>
+                        </igx-card-actions>
+                    </igx-card>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5" *ngIf="name">
+            <button class="float-right" type="button" igxButton="flat" (click)="save(snackbar)" igxRipple igxStart> 
+                <span class="material-symbols-outlined text-black">
+                    save
+                    </span>
+            </button>
+        </div>
+    </div>
+    
+</div>
+<igx-snackbar #snackbar>{{messageError}}</igx-snackbar>
+
+<div #cardDetail class="max-w-lg">
+
+    <igx-card *ngIf="pokeSelect">
+        <div class="grid grid-cols-1">
+            <igx-card-media >
+                <img [src]="pokeSelect.images.large" >
+            </igx-card-media>
+        </div>
+    </igx-card>
+</div>

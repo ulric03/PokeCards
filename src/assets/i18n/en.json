@@ -1,0 +1,16 @@
+{
+  "PokeCards":"Poke Cards",
+  "Set_Sets": "Deck",
+  "Set_NewSet": "create new deck",
+  "Form_OneStep": "1. Enter the name of the deck",
+  "Form_TwoStep": "2. Save the deck",
+  "Create": "Create",
+  "Edit": "Edit",
+  "List": "List",
+  "Form_Set": "deck",
+  "Form_NameSet": "Name of decl",
+  "Detail_CardsTrainner": "Coach cards",
+  "Form_LimitCardName":"There can only be 4 cards with the same name in the deck",
+  "Form_LimitCard":"The deck must have a maximum of 60 cards",
+  "Form_MinCard":"The deck must have a minimum of 24 cards and a maximum of 60 cards"
+}
